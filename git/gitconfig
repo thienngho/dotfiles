@@ -1,0 +1,28 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Thien Ho
+	email = thienngho@gmail.com
+[alias]
+	co = checkout
+	cm = commit -m
+	st = status
+	br = branch
+	df = diff
+	ad = add
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+	sw = show
+	pl = pull
+	ps = push
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nvim
+[pull]
+	ff = only
+[push]
+  default = current
+[merge]
+  conflictstyle = zdiff3

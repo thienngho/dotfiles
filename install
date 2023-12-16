@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+trap SIGINT SIGTERM ERR EXIT
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Setup git
+ln -sf "${BASEDIR}/git/gitconfig" ~/.gitconfig
+
+# Install homebrew dependencies
+bash "${BASEDIR}/homebrew/install.sh"
+
+# Configuring fish
+ln -sf "${BASEDIR}/fish/config.fish" ~/.config/fish/config.fish
+
+# install fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+# Install pip3 packages
+bash "${BASEDIR}/pip3/install.sh"
+
+# Go get packages
+# bash "${BASEDIR}/golang/install.sh"
+
+# OSX defaults
+bash "${BASEDIR}/osx-defaults/osx-defaults.sh"
+
+# Configuring ssh
+mkdir -p "${BASEDIR}/.ssh/"
+mkdir -p ~/.ssh
+ln -sf "${BASEDIR}/ssh/config" ~/.ssh/config
+
+# Setup astronvim
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone --depth 1 https://github.com/thienngho/astronvim_config.git ~/.config/nvim/lua/user
