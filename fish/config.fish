@@ -1,4 +1,5 @@
 alias l='lsd -alh'
+alias br='brew'
 alias vi='nvim'
 alias vim='nvim'
 alias ls='lsd'
@@ -44,3 +45,4 @@ end
 fish_add_path /opt/homebrew/bin
 
 export KUBE_EDITOR="nvim"
+complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
