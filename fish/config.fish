@@ -24,7 +24,6 @@ export LANG=en_US.UTF-8
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden --follow --glob "!.git/*"'
 
 set -gx SPACEFISH_DOCKER_SHOW 'false'
-set -gx PATH $PATH $HOME/.krew/bin
 set -gx PATH $PATH $HOME/.local/bin
 
 # add the go bin path to be able to execute our programs
