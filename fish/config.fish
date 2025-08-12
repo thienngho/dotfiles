@@ -7,6 +7,18 @@ alias grep='rg'
 alias ll='lsd -alh'
 alias cat='bat -p'
 alias g='git'
+alias gad='git add'
+alias gcm='git cm'
+alias gpl='git pull'
+alias gps='git push'
+alias gst='git status'
+alias gdf='git diff'
+alias glg='git lg'
+alias gbr='git branch'
+alias gsh='git show'
+alias gsw='git switch'
+alias gco='git checkout'
+alias gcl='git clone'
 alias tf='terraform'
 alias tg='terragrunt'
 alias h='helm'
@@ -22,7 +34,7 @@ alias gw='mosh gw'
 alias deploy='mosh deploy'
 
 export LANG=en_US.UTF-8
-set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden --follow --glob "!.git/*"'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden --follow --glob "!.git/*"' --glob "!.terraform/*" --glob "!node_modules/*" --glob "!.terragrunt-cache/*"
 
 set -gx SPACEFISH_DOCKER_SHOW 'false'
 set -gx PATH $PATH $HOME/.local/bin
@@ -33,10 +45,9 @@ set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 
 alias sl="pushd ~/workspaces/slated"
 alias cc="pushd ~/workspaces/cuddleclones"
-alias zc="pushd ~/workspaces/zencity"
-alias bt="pushd ~/workspaces/btse"
+alias fc="pushd ~/workspaces/falcon"
 
-eval (direnv hook fish)
+# eval (direnv hook fish)
 starship init fish | source
 
 function fish_user_key_bindings

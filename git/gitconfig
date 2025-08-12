@@ -18,13 +18,28 @@
 	type = cat-file -t
 	dump = cat-file -p
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	#pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 	editor = nvim
 [pull]
 	ff = only
 [push]
   default = current
+	autoSetupRemote = true
 [merge]
   conflictstyle = zdiff3
 [init]
 	defaultBranch = main
+[diff]
+	algorithm = histogram
+	colorMoved = default
+[branch]
+	sort = -committerdate
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+		line-numbers = true
+		; hyperlinks = true
+		; side-by-side = true
