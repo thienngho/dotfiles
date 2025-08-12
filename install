@@ -7,6 +7,9 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Setup git
 ln -sf "${BASEDIR}/git/gitconfig" ~/.gitconfig
 
+# OSX defaults
+bash "${BASEDIR}/osx-defaults/osx-defaults.sh"
+
 # Install homebrew dependencies
 bash "${BASEDIR}/homebrew/install.sh"
 
@@ -21,9 +24,6 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 # Go get packages
 # bash "${BASEDIR}/golang/install.sh"
-
-# OSX defaults
-bash "${BASEDIR}/osx-defaults/osx-defaults.sh"
 
 # Configuring ssh
 mkdir -p "${BASEDIR}/.ssh/"
